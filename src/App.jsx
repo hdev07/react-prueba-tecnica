@@ -1,14 +1,13 @@
-import { useState } from 'react'
+import { Routes, Route, Navigate } from "react-router-dom";
+import { Auth } from "@/layouts";
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline text-center text-gray-700">
-        Hello world!  <br/> From Tailwind + React
-      </h1>
-    </>
-
-  )
+    <Routes>
+      <Route path="*" element={<Auth />} />
+      <Route path="/" element={<Navigate to="/signin" replace />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
