@@ -1,7 +1,9 @@
 import {
+  HomeIcon,
   ArrowRightOnRectangleIcon,
   UserPlusIcon,
 } from "@heroicons/react/24/solid";
+import { Home } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages";
 
 const icon = {
@@ -9,6 +11,17 @@ const icon = {
 };
 
 export const routes = [
+  {
+    layout: "dashboard",
+    pages: [
+      {
+        icon: <HomeIcon {...icon} />,
+        name: "dashboard",
+        path: "/home",
+        element: <Home />,
+      },
+    ],
+  },
   {
     title: "auth pages",
     layout: "auth",

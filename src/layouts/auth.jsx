@@ -6,19 +6,6 @@ import {
 import routes from "@/routes";
 
 export function Auth() {
-  const navbarRoutes = [
-    {
-      name: "sign up",
-      path: "/signup",
-      icon: UserPlusIcon,
-    },
-    {
-      name: "sign in",
-      path: "/signin",
-      icon: ArrowRightOnRectangleIcon,
-    },
-  ];
-
   return (
     <div className="relative min-h-screen w-full bg-img">
       <Routes>
