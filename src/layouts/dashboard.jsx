@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import {
   Sidenav,
   DashboardNavbar,
@@ -6,10 +6,16 @@ import {
 } from "@/widgets/layout";
 import routes from "@/routes";
 import { useMaterialTailwindController } from "@/context";
+import { useAuth } from "@/hooks";
 
 export function Dashboard() {
+  const { user } = useAuth();
   const [ controller ] = useMaterialTailwindController();
   const { sidenavType } = controller;
+
+  if (!user) {
+    return <Navigate to="/auth/signin" />;
+  }
 
   return (
     <div className="min-h-screen bg-blue-gray-50">

@@ -1,25 +1,28 @@
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   Navbar,
   Typography,
   IconButton,
-  Breadcrumbs,
 } from "@material-tailwind/react";
 import {
   Cog6ToothIcon,
   Bars3Icon,
+  ArrowRightOnRectangleIcon,
 } from "@heroicons/react/24/solid";
 import {
   useMaterialTailwindController,
   setOpenConfigurator,
   setOpenSidenav,
 } from "@/context";
+import { useAuth } from "@/hooks";
+import * as React from "react";
 
 export function DashboardNavbar() {
+  const { logout } = useAuth();
   const [ controller, dispatch ] = useMaterialTailwindController();
   const { fixedNavbar, openSidenav } = controller;
   const { pathname } = useLocation();
-  const [ page] = pathname.split("/").filter((el) => el !== "");
+  const [ page ] = pathname.split("/").filter((el) => el !== "");
 
   return (
     <Navbar
@@ -53,6 +56,14 @@ export function DashboardNavbar() {
             onClick={() => setOpenConfigurator(dispatch, true)}
           >
             <Cog6ToothIcon className="h-5 w-5 text-blue-gray-500" />
+          </IconButton>
+          <IconButton
+            variant="text"
+            color="blue-gray"
+            key={"logout"}
+            onClick={logout}
+          >
+            <ArrowRightOnRectangleIcon className="h-5 w-5 text-blue-gray-500" />
           </IconButton>
         </div>
       </div>
