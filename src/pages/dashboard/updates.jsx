@@ -20,11 +20,10 @@ export function Updates() {
 
   const thumbs = files.map((file) => (
     <div key={file.name}>
-      <div className="flex min-w-0 overflow-hidden">
+      <div className="flex min-w-0">
         <img
           src={file.preview}
-          className="black h-full w-auto"
-          // Revoke data uri after image is loaded
+          className="flex justify-items-center p-6"
           onLoad={() => {
             URL.revokeObjectURL(file.preview);
           }}
@@ -34,17 +33,20 @@ export function Updates() {
   ));
 
   useEffect(() => {
-    // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
   }, []);
 
   return (
-    <section className="container h-3/4 w-full">
-      <div {...getRootProps({ className: "dropzone" })}>
+    <section>
+      <div {...getRootProps({})}>
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <div className="min-h-12 flex justify-center border-4 border-dashed border-black bg-blue-gray-400 py-32">
+          Drag 'n' drop some files here, or click to select files
+        </div>
       </div>
-      <aside className="flex flex-row flex-wrap pt-6">{thumbs}</aside>
+      <aside className="flex flex-row flex-wrap justify-between pt-6">
+        {thumbs}
+      </aside>
     </section>
   );
 }
