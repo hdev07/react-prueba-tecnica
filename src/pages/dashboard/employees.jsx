@@ -18,9 +18,9 @@ export function Employees() {
 
   function time() {
     let unixTimestamp = 0;
-    const milliseconds = unixTimestamp * 1000; // 1575909015000
+    const milliseconds = unixTimestamp * 1000;
     const dateObject = new Date(milliseconds);
-    const humanDateFormat = dateObject.toLocaleString(); //2019-12-9 10:30:15
+    const humanDateFormat = dateObject.toLocaleString();
 
     return humanDateFormat;
   }
