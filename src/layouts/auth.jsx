@@ -1,11 +1,13 @@
-import { Routes, Route } from "react-router-dom";
-import {
-  UserPlusIcon,
-  ArrowRightOnRectangleIcon,
-} from "@heroicons/react/24/solid";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useAuth } from "@/hooks";
 import routes from "@/routes";
 
 export function Auth() {
+  const { user } = useAuth();
+  if (user) {
+    return <Navigate to="/dashboard/dashboard" replace />;
+  }
+
   return (
     <div className="relative min-h-screen w-full bg-img">
       <Routes>

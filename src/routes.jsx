@@ -1,10 +1,12 @@
 import {
   HomeIcon,
+  TableCellsIcon,
+  ArrowUpTrayIcon,
   ArrowRightOnRectangleIcon,
   UserPlusIcon,
 } from "@heroicons/react/24/solid";
-import { Home } from "@/pages/dashboard";
-import { SignIn, SignUp } from "@/pages";
+import { Home, Employees, Updates } from "@/pages/dashboard";
+import { SignIn, SignUp } from "@/pages/auth";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -17,8 +19,20 @@ export const routes = [
       {
         icon: <HomeIcon {...icon} />,
         name: "dashboard",
-        path: "/home",
+        path: "/dashboard",
         element: <Home />,
+      },
+      {
+        icon: <TableCellsIcon {...icon} />,
+        name: "employees",
+        path: "/employees",
+        element: <Employees />,
+      },
+      {
+        icon: <ArrowUpTrayIcon {...icon} />,
+        name: "updates",
+        path: "/updates",
+        element: <Updates />,
       },
     ],
   },
