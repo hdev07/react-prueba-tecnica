@@ -9,6 +9,16 @@ npm install
 ```
 ## Usage
 
+run server
+```bash
+npm run dev
+```
+
+run build
+```bash
+npm run build
+```
+
 To enter just use any email and any password, you can even register
 
 ## Contributing
